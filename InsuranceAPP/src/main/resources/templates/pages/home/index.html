@@ -3,6 +3,27 @@
 <head th:replace="~{/fragments/layout.html :: head}"></head>
 <body>
     <header th:replace="~{/fragments/layout.html :: header}"></header>
-
+    <div class="container text-center">
+        <article>
+            <div class="row">
+                <div class="col">
+                    <header class=" my-3">
+                        <h1 >Spring pojišťovna</h1>
+                    </header>
+                </div>
+            </div>
+            <section>
+                <div class="row my-2 align-items-center">
+                    <div class="col-lg-3">
+                        <img th:src="@{/images/logo.png}" width="160" />
+                    </div>
+                    <div class="col-lg pt-3 align-self-center text-lg-start">
+                        <h3>Výtejte na stránkách naší pojišťovací spring aplikace!</h3>
+                        <p class="pt-3 ">Pokračujte dále na stránky <strong>Klineti</strong>, <strong>Smlouvy</strong>, nebo <strong>Pojistné události</strong></p>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </div>
 </body>
 </html>
