@@ -11,53 +11,26 @@
             </header>
             <section class="my-5">
                 <a class="btn btn-primary" th:href="@{/clients/create}">Přidat Klienta</a>
+
+                <div class="alert alert-success my-3" role="alert" th:text="${success}" th:if="${success}"></div>
+
                 <table class="table table-striped" id="tablePagination">
                     <thead>
                     <tr>
                         <th>Jméno</th>
                         <th>Bydliště</th>
+                        <th>Datum narození</th>
                         <th></th>
                     </tr>
                     </thead>
                     <tbody class="table-group-divider">
-                    <tr>
-                        <th><a class=" text-decoration-none" href="#">Karel Novák1</a> </th>
-                        <td>Maková 3, Praha 4</td>
+                    <tr th:each="client: ${clients}">
+                        <th><a th:text="${client.firstName + ' ' + client.surname}" class=" text-decoration-none" href="#"></a></th>
+                        <td th:text="${client.street + ', ' + client.city + ' ' + client.zipCode}"></td>
+                        <td th:text="${client.birthDate.format(T(java.time.format.DateTimeFormatter).ofPattern('dd.MM.yyyy'))}"></td>
                         <td>
-                            <a class="btn btn-warning">Upravit</a>
-                            <a class="btn btn-danger">Smazat</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><a href="#">Karel Novák</a> </th>
-                        <td>Maková 3, Praha 4</td>
-                        <td>
-                            <a class="btn btn-warning">Upravit</a>
-                            <a class="btn btn-danger">Smazat</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><a href="#">Karel Novák2</a> </th>
-                        <td>Maková 3, Praha 4</td>
-                        <td>
-                            <a class="btn btn-warning">Upravit</a>
-                            <a class="btn btn-danger">Smazat</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><a href="#">Karel Novák</a> </th>
-                        <td>Maková 3, Praha 4</td>
-                        <td>
-                            <a class="btn btn-warning">Upravit</a>
-                            <a class="btn btn-danger">Smazat</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th><a href="#">Karel Novák3</a> </th>
-                        <td>Maková 3, Praha 4</td>
-                        <td>
-                            <a class="btn btn-warning">Upravit</a>
-                            <a class="btn btn-danger">Smazat</a>
+                            <a class="btn btn-warning" href="#">Upravit</a>
+                            <a class="btn btn-danger" href="#">Smazat</a>
                         </td>
                     </tr>
                     </tbody>

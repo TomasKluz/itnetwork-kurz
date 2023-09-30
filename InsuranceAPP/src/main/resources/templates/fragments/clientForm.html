@@ -6,45 +6,53 @@
 </head>
 <body>
 
-<form th:fragmet="form" class="container ">
+<form th:fragmet="form" method="post" th:action="@{/clients/create}" th:object="${clientDTO}" class="container ">
     <div class="row justify-content-center">
         <div class="col-md-5 mb-4">
             <label for="firstName" class="from-label fs-5 fw-semibold mb-1 ms-1">Jméno</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Jan">
+            <input th:field="*{firstName}" type="text" class="form-control" id="firstName" placeholder="Jan">
+            <small class="text-danger" th:errors="*{firstName}"></small>
         </div>
         <div class="col-md-5 mb-4">
             <label for="surname" class="from-label fs-5 fw-semibold mb-1 ms-1">Příjmení</label>
-            <input type="text" class="form-control" id="surname" placeholder="Novák">
+            <input th:field="*{surname}" type="text" class="form-control" id="surname" placeholder="Novák">
+            <small class="text-danger" th:errors="*{surname}"></small>
         </div>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-5 mb-4">
             <label for="dateOfBirth" class="from-label fs-5 fw-semibold mb-1 ms-1">Datum narození</label>
-            <input type="date" class="form-control" id="dateOfBirth">
+            <input th:field="*{birthDate}" type="date"  class="form-control" id="dateOfBirth">
+            <small class="text-danger" th:errors="*{birthDate}"></small>
         </div>
         <div class="col-md-5 mb-4">
             <label for="email" class="from-label fs-5 fw-semibold mb-1 ms-1">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="novak@email.cz">
+            <input th:field="*{email}" type="email" class="form-control" id="email" placeholder="novak@email.cz">
+            <small class="text-danger" th:errors="*{email}"></small>
         </div>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-5 mb-4">
             <label for="phoneNumber" class="from-label fs-5 fw-semibold mb-1 ms-1">Telefonní číslo</label>
-            <input type="text" class="form-control" id="phoneNumber" placeholder="731 123 456">
+            <input th:field="*{phoneNumber}" type="text" class="form-control" id="phoneNumber" placeholder="731 123 456">
+            <small class="text-danger" th:errors="*{phoneNumber}"></small>
         </div>
         <div class="col-md-5 mb-4">
             <label for="street" class="from-label fs-5 fw-semibold mb-1 ms-1">Ulice s č.p</label>
-            <input type="text" class="form-control" id="street" placeholder="Luční 152">
+            <input th:field="*{street}" type="text" class="form-control" id="street" placeholder="Luční 152">
+            <small class="text-danger" th:errors="*{street}"></small>
         </div>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-5 mb-4">
             <label for="city" class="from-label fs-5 fw-semibold mb-1 ms-1">Město</label>
-            <input type="text" class="form-control" id="city" placeholder="Praha">
+            <input th:field="*{city}" type="text" class="form-control" id="city" placeholder="Praha">
+            <small class="text-danger" th:errors="*{city}"></small>
         </div>
         <div class="col-md-5 mb-4">
             <label for="zipCode" class="from-label fs-5 fw-semibold mb-1 ms-1">PSČ</label>
-            <input type="text" class="form-control" id="zipCode" placeholder="101 00">
+            <input th:field="*{zipCode}" type="text" class="form-control" id="zipCode" placeholder="101 00">
+            <small class="text-danger" th:errors="*{zipCode}"></small>
         </div>
     </div>
     <div class="row justify-content-center">
