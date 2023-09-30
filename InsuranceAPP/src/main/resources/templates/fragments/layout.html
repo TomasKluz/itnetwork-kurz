@@ -8,20 +8,21 @@
     <link rel="stylesheet" type="text/css" th:href="@{/styles/bootstrap.min.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/styles.css}">
     <script th:src="@{/scripts/bootstrap.min.js}"></script>
+    <script th:src="@{/scripts/bs_pagination.js}"></script>
     <title>InsuranceApp</title>
 </head>
 <body>
 <header th:fragment="header">
     <nav class="navbar navbar-expand-md bg-body-tertiary fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand ps-5" href="#"><img th:src="@{/images/logo.png}" alt="logo" width="50px"></a>
+            <a class="navbar-brand ps-5" th:href="@{/}"><img th:src="@{/images/logo.png}" alt="logo" width="50px"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Klienti</a>
+                        <a class="nav-link" th:href="@{/clients}">Klienti</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Smlouvy</a>

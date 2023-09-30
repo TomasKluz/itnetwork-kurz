@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="cs-cz">
+<head th:replace="~{/fragments/layout.html :: head}"></head>
+<body>
+    <header th:replace="~{/fragments/layout.html :: header}"></header>
+    <div class="container">
+        <article>
+            <header>
+                <h1>Klienti</h1>
+                <hr>
+            </header>
+            <section class="my-5">
+                <a class="btn btn-primary" th:href="@{/clients/create}">Přidat Klienta</a>
+                <table class="table table-striped" id="tablePagination">
+                    <thead>
+                    <tr>
+                        <th>Jméno</th>
+                        <th>Bydliště</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody class="table-group-divider">
+                    <tr>
+                        <th><a class=" text-decoration-none" href="#">Karel Novák1</a> </th>
+                        <td>Maková 3, Praha 4</td>
+                        <td>
+                            <a class="btn btn-warning">Upravit</a>
+                            <a class="btn btn-danger">Smazat</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="#">Karel Novák</a> </th>
+                        <td>Maková 3, Praha 4</td>
+                        <td>
+                            <a class="btn btn-warning">Upravit</a>
+                            <a class="btn btn-danger">Smazat</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="#">Karel Novák2</a> </th>
+                        <td>Maková 3, Praha 4</td>
+                        <td>
+                            <a class="btn btn-warning">Upravit</a>
+                            <a class="btn btn-danger">Smazat</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="#">Karel Novák</a> </th>
+                        <td>Maková 3, Praha 4</td>
+                        <td>
+                            <a class="btn btn-warning">Upravit</a>
+                            <a class="btn btn-danger">Smazat</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><a href="#">Karel Novák3</a> </th>
+                        <td>Maková 3, Praha 4</td>
+                        <td>
+                            <a class="btn btn-warning">Upravit</a>
+                            <a class="btn btn-danger">Smazat</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <nav>
+                    <ul class="pagination justify-content-center" id="pagination"></ul>
+                </nav>
+            </section>
+        </article>
+    </div>
+</body>
+</html>

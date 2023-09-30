@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form th:fragmet="form" class="container ">
+    <div class="row justify-content-center">
+        <div class="col-md-5 mb-4">
+            <label for="firstName" class="from-label fs-5 fw-semibold mb-1 ms-1">Jméno</label>
+            <input type="text" class="form-control" id="firstName" placeholder="Jan">
+        </div>
+        <div class="col-md-5 mb-4">
+            <label for="surname" class="from-label fs-5 fw-semibold mb-1 ms-1">Příjmení</label>
+            <input type="text" class="form-control" id="surname" placeholder="Novák">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-5 mb-4">
+            <label for="dateOfBirth" class="from-label fs-5 fw-semibold mb-1 ms-1">Datum narození</label>
+            <input type="date" class="form-control" id="dateOfBirth">
+        </div>
+        <div class="col-md-5 mb-4">
+            <label for="email" class="from-label fs-5 fw-semibold mb-1 ms-1">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="novak@email.cz">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-5 mb-4">
+            <label for="phoneNumber" class="from-label fs-5 fw-semibold mb-1 ms-1">Telefonní číslo</label>
+            <input type="text" class="form-control" id="phoneNumber" placeholder="731 123 456">
+        </div>
+        <div class="col-md-5 mb-4">
+            <label for="street" class="from-label fs-5 fw-semibold mb-1 ms-1">Ulice s č.p</label>
+            <input type="text" class="form-control" id="street" placeholder="Luční 152">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-5 mb-4">
+            <label for="city" class="from-label fs-5 fw-semibold mb-1 ms-1">Město</label>
+            <input type="text" class="form-control" id="city" placeholder="Praha">
+        </div>
+        <div class="col-md-5 mb-4">
+            <label for="zipCode" class="from-label fs-5 fw-semibold mb-1 ms-1">PSČ</label>
+            <input type="text" class="form-control" id="zipCode" placeholder="101 00">
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <button type="submit" class=" col-3 col-md-1 btn btn-primary">Uložit</button>
+    </div>
+</form>
+
+</body>
+</html>
