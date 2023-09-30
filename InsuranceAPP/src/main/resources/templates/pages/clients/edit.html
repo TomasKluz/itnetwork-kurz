@@ -1,10 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head th:replace="~{/fragments/layout.html :: head}"></head>
 <body>
+    <header th:replace="~{/fragments/layout.html :: header}"></header>
+    <div class="container" th:object="${clientDTO}">
+        <header>
+            <h1>Upravit kartu klienta</h1>
+            <h2 th:text="*{firstName + ' ' + surname}"></h2>
+            <hr>
+        </header>
+        <section>
+            <form method="post" th:object="${clientDTO}" class="container " th:action="@{'/clients/edit/' + ${clientId}}">
+                <div  th:replace="~{/fragments/clientForm :: form}"></div>
+            </form>
+        </section>
+    </div>
 
 </body>
 </html>

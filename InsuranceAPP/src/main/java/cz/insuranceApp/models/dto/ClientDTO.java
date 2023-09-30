@@ -2,15 +2,11 @@ package cz.insuranceApp.models.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import org.springframework.format.annotation.DateTimeFormat;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 
 public class ClientDTO {
-    private long clientID;
+    private long clientId;
     @NotNull(message = "vplňte jméno")
     @NotBlank(message = "vypňte jméno")
     private String firstName;
@@ -37,12 +33,12 @@ public class ClientDTO {
     private String zipCode;
 
 
-    public long getClientID() {
-        return clientID;
+    public long getClientId() {
+        return clientId;
     }
 
-    public void setClientID(long clientID) {
-        this.clientID = clientID;
+    public void setClientId(long clientId) {
+        this.clientId = clientId;
     }
 
     public String getFirstName() {

@@ -4,6 +4,7 @@ import cz.insuranceApp.data.entities.ClientEntity;
 import cz.insuranceApp.data.repositories.ClientRepository;
 import cz.insuranceApp.models.dto.ClientDTO;
 import cz.insuranceApp.models.dto.mappers.ClientMapper;
+import cz.insuranceApp.models.exceptions.ClientNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,16 +31,24 @@ public class ClientServiceImpl implements ClientService{
 
     @Override
     public ClientDTO getById(long clientId) {
-        return null;
+        ClientEntity fetchedClient = getClientOrThrow(clientId);
+        return clientMapper.toDTO(fetchedClient);
     }
 
     @Override
-    public void edit(ClientDTO clientDTO) {
+    public void edit(ClientDTO client) {
+        ClientEntity fetchedClient = getClientOrThrow(client.getClientId());
+        clientMapper.updateClientEntity(client,fetchedClient);
+        clientRepository.save(fetchedClient);
 
     }
 
     @Override
     public void remove(long clientId) {
 
+    }
+    private ClientEntity getClientOrThrow(long clientId){
+        return clientRepository.findById(clientId)
+                .orElseThrow(ClientNotFoundException::new);
     }
 }

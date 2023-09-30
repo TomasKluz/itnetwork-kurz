@@ -8,6 +8,6 @@ public interface ClientService {
     void create(ClientDTO clientDTO);
     List<ClientDTO> getAll();
     ClientDTO getById(long clientId);
-    void edit(ClientDTO clientDTO);
+    void edit(ClientDTO client);
     void remove(long clientId);
 }

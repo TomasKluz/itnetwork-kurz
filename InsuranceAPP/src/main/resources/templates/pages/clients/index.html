@@ -14,7 +14,7 @@
 
                 <div class="alert alert-success my-3" role="alert" th:text="${success}" th:if="${success}"></div>
 
-                <table class="table table-striped" id="tablePagination">
+                <table class="table table-striped my-3" id="tablePagination">
                     <thead>
                     <tr>
                         <th>Jméno</th>
@@ -29,7 +29,7 @@
                         <td th:text="${client.street + ', ' + client.city + ' ' + client.zipCode}"></td>
                         <td th:text="${client.birthDate.format(T(java.time.format.DateTimeFormatter).ofPattern('dd.MM.yyyy'))}"></td>
                         <td>
-                            <a class="btn btn-warning" href="#">Upravit</a>
+                            <a class="btn btn-warning" th:href="@{'/clients/edit/' + ${client.clientId}}">Upravit</a>
                             <a class="btn btn-danger" href="#">Smazat</a>
                         </td>
                     </tr>

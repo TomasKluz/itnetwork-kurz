@@ -9,7 +9,9 @@
             <h1>Přidat klienta</h1>
             <hr>
         </header>
-        <form th:replace="~{/fragments/clientForm :: form}"></form>
+        <form method="post" th:object="${clientDTO}" class="container " th:action="@{/clients/create}">
+            <div  th:replace="~{/fragments/clientForm :: form}"></div>
+        </form>
     </section>
 
 </div>
