@@ -9,12 +9,14 @@
                 <h1>Klienti</h1>
                 <hr>
             </header>
-            <section class="my-5">
+            <section class="my-5 shadow-sm">
                 <a class="btn btn-primary" th:href="@{/clients/create}">Přidat Klienta</a>
 
-                <div class="alert alert-success my-3" role="alert" th:text="${success}" th:if="${success}"></div>
 
-                <table class="table table-striped my-3" id="tablePagination">
+                <div class="alert alert-success my-3" role="alert" th:text="${success}" th:if="${success}"></div>
+                <div class="alert alert-danger my-3" role="alert" th:text="${error}" th:if="${error}"></div>
+
+                <table class="table table-striped my-3 " id="tablePagination">
                     <thead>
                     <tr>
                         <th>Jméno</th>
@@ -25,17 +27,17 @@
                     </thead>
                     <tbody class="table-group-divider">
                     <tr th:each="client: ${clients}">
-                        <th><a th:text="${client.firstName + ' ' + client.surname}" class=" text-decoration-none" href="#"></a></th>
+                        <th><a th:text="${client.firstName + ' ' + client.surname}" class=" text-decoration-none" th:href="@{'/clients/detail/' + ${client.clientId}}"></a></th>
                         <td th:text="${client.street + ', ' + client.city + ' ' + client.zipCode}"></td>
                         <td th:text="${client.birthDate.format(T(java.time.format.DateTimeFormatter).ofPattern('dd.MM.yyyy'))}"></td>
                         <td>
                             <a class="btn btn-warning" th:href="@{'/clients/edit/' + ${client.clientId}}">Upravit</a>
-                            <a class="btn btn-danger" href="#">Smazat</a>
+                            <a class="btn btn-danger" th:href="@{'/clients/delete/' + ${client.clientId}}">Smazat</a>
                         </td>
                     </tr>
                     </tbody>
                 </table>
-                <nav>
+                <nav class="py-1">
                     <ul class="pagination justify-content-center" id="pagination"></ul>
                 </nav>
             </section>

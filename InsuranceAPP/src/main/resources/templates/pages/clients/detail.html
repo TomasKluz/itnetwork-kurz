@@ -1,10 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="cs-cz">
+<head th:replace="~{/fragments/layout.html :: head}"></head>
 <body>
+    <header th:replace="~{/fragments/layout.html ::header}"></header>
+    <article>
+        <header>
+            <div class="container bg-success-subtle rounded-pill shadow-sm text-center">
+                <div class="row justify-content-center align-items-center">
+                    <div class="col-10 pt-3">
+                        <h2 class="border-bottom border-2 border-success-subtle" th:text="${client.firstName + ' ' + client.surname}"></h2>
+                        <div class="row justify-content-center align-items-center">
+                            <div class="col-auto ps-1 pb-2">
+                                <div class="lh-base fw-medium text-start">
+                                    <div th:text="'datum narození: ' + ${client.birthDate.format(T(java.time.format.DateTimeFormatter).ofPattern('dd.MM.yyyy'))}"></div>
+                                    <div th:text="'telefon: ' + ${client.phoneNumber}"></div>
+                                    <div th:text="'email: ' + ${client.email}"></div>
+                                </div>
+                            </div>
+                            <div class="col-auto ps-2 pb-2">
+                                <div class="lh-base fw-medium text-start">
+                                    <div th:text="${client.street}"></div>
+                                    <div th:text="${client.city}"></div>
+                                    <div th:text="${client.zipCode}"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section>
+            <div class="container pt-3">
+                <h3>Sjednané pojištění</h3>
+                <hr>
+                <a class="btn btn-primary pt-1" href="#">Přidat pojištění</a>
+                <table>
+
+                </table>
+                <div class="text-end ">
+                    <a class="btn btn-warning mx-1" th:href="@{'/clients/edit/' + ${client.clientId}}">Upravit klienta</a>
+                    <a class="btn btn-danger mx-1" th:href="@{'/clients/delete/' + ${client.clientId}}">Odstranit klineta</a>
+                </div>
+            </div>
+        </section>
+    </article>
 
 </body>
 </html>

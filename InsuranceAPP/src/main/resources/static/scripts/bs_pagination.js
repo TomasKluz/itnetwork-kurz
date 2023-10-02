@@ -7,7 +7,7 @@ let activePage = currentPage;
 
 
 function createPagination(){
-    let rowsPerPage =  6; 
+    let rowsPerPage =  5;
     let tableRows = document.querySelectorAll('#tablePagination tbody tr');   
     let pageCount = Math.ceil(tableRows.length / rowsPerPage); 
     let pagination = document.getElementById('pagination');

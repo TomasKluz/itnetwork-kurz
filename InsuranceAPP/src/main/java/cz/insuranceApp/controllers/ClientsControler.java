@@ -2,6 +2,7 @@ package cz.insuranceApp.controllers;
 
 import cz.insuranceApp.models.dto.ClientDTO;
 import cz.insuranceApp.models.dto.mappers.ClientMapper;
+import cz.insuranceApp.models.exceptions.ClientNotFoundException;
 import cz.insuranceApp.models.services.ClientService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
@@ -64,6 +67,27 @@ public class ClientsControler {
         client.setClientId(clientId);
         clientService.edit(client);
         redirectAttributes.addFlashAttribute("success", "Karta klienta upravena");
+        return "redirect:/clients";
+    }
+    @GetMapping("/detail/{clientId}")
+    public String renderClientDetail(@PathVariable long clientId,
+                                     Model model){
+        ClientDTO client = clientService.getById(clientId);
+        model.addAttribute("client", client);
+        return "pages/clients/detail";
+
+    }
+
+    @GetMapping("delete/{clientId}")
+    public String dleteClient(@PathVariable long clientId,
+                              RedirectAttributes redirectAttributes){
+        clientService.remove(clientId);
+        redirectAttributes.addFlashAttribute("success", "Klient byl smazán");
+        return "redirect:/clients";
+    }
+    @ExceptionHandler({ClientNotFoundException.class})
+    public String handleClientNotFoundException(RedirectAttributes redirectAttributes){
+        redirectAttributes.addFlashAttribute("error", "Klient nebyl nalezen.");
         return "redirect:/clients";
     }
 
