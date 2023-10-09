@@ -2,6 +2,8 @@ package cz.insuranceApp.models.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import org.checkerframework.common.aliasing.qual.Unique;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import java.time.LocalDate;
 
@@ -14,7 +16,7 @@ public class ClientDTO {
     @NotNull(message = "vplňte příjmení")
     @NotBlank(message = "vypňte příjmení")
     private String surname;
-
+    @NotNull(message = "Vyplňte datum narození")
     private LocalDate birthDate;
     @NotNull(message = "vplňte telefonní číslo")
     @NotBlank(message = "vypňte telefonní číslo")

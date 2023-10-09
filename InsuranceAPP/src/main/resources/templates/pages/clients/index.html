@@ -31,8 +31,9 @@
                         <td th:text="${client.street + ', ' + client.city + ' ' + client.zipCode}"></td>
                         <td th:text="${client.birthDate.format(T(java.time.format.DateTimeFormatter).ofPattern('dd.MM.yyyy'))}"></td>
                         <td>
-                            <a class="btn btn-warning" th:href="@{'/clients/edit/' + ${client.clientId}}">Upravit</a>
-                            <a class="btn btn-danger" th:href="@{'/clients/delete/' + ${client.clientId}}">Smazat</a>
+                            <a class="btn btn-success mx-1" th:href="@{'contracts/create/' + ${client.clientId}}">Přidat pojištění</a>
+                            <a class="btn btn-warning mx-1" th:href="@{'/clients/edit/' + ${client.clientId}}">Upravit</a>
+                            <a class="btn btn-danger mx-1" th:href="@{'/clients/delete/' + ${client.clientId}}">Smazat</a>
                         </td>
                     </tr>
                     </tbody>

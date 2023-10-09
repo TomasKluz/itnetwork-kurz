@@ -12,13 +12,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Controller
 @RequestMapping("/clients")
-public class ClientsControler {
+public class ClientsController {
     @Autowired
     private ClientService clientService;
     @Autowired
@@ -39,8 +37,6 @@ public class ClientsControler {
     public String createClient(@Valid @ModelAttribute ClientDTO client,
                                BindingResult result,
                                RedirectAttributes redirectAttributes){
-        System.out.println(client.getBirthDate());
-        System.out.println(client.getFirstName());
         if(result.hasErrors()){
             return renderCreateForm(client);
         }

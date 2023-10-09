@@ -13,7 +13,7 @@
 </head>
 <body>
 <header th:fragment="header">
-    <nav class="navbar navbar-expand-md bg-body-secondary fixed-top fw-medium">
+    <nav class="navbar navbar-expand-md bg-primary-subtle fixed-top fw-bolder">
         <div class="container-fluid">
             <a class="navbar-brand ps-5" th:href="@{/}"><img th:src="@{/images/logo.png}" alt="logo" width="50px"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -25,7 +25,7 @@
                         <a class="nav-link" th:href="@{/clients}">Klienti</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Smlouvy</a>
+                        <a class="nav-link" th:href="@{/contracts}">Smlouvy</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Pojistnné události</a>

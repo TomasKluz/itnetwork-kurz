@@ -1,10 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<head th:replace="~{/fragments/layout.html :: head}"></head>
 <body>
+    <header th:replace="~{/fragments/layout.html :: header}"></header>
+    <article>
+        <header th:replace="~{/fragments/clientDetail.html :: header}"></header>
+        <section class="container">
+            <form method="post" th:object="${contractDTO}" th:action="@{'/contracts/create/' + ${client.clientId}}">
+                <div class="row mt-4">
+                    <div class="col-4">
+                        <label>
+                            <select class="form-select-lg bg-body-tertiary" th:field="*{insuranceName}">
+                                <option value="Pojištění majetku">Pojštění majetku</option>
+                                <option value="Povinné ručení">Povinné ručení</option>
+                                <option value="Havarijní pojištění">Havaríjní pojištění</option>
+                            </select>
+                        </label>
+                    </div>
+                </div>
+                <div class="row mt-3 justify-content-center">
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label for="sum" class="form-label fw-bold">Částka</label>
+                            <input th:field="*{amount}" type="number" class="form-control border border-2" id="sum" placeholder="1000000">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label for="subject" class="form-label fw-bold">Předmět pojištění</label>
+                            <input th:field="*{article}" type="text" class="form-control border border-2" id="subject" placeholder="Byt">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label for="dateFrom" class="form-label fw-bold">Platnost od</label>
+                            <input th:field="*{dateFrom}" type="date" class="form-control border border-2" id="dateFrom">
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="mb-3">
+                            <label for="dateTo" class="form-label fw-bold">Platnost do</label>
+                            <input th:field="*{dateTo}" type="date" class="form-control border border-2" id="dateTo">
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-end mt-2">
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary mb-3">Přidat pojištění</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+    </article>
 
 </body>
 </html>

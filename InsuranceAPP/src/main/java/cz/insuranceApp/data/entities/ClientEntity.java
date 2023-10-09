@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 
 import java.time.LocalDate;
+import java.util.List;
 
 
 @Entity
@@ -29,6 +30,8 @@ public class ClientEntity {
     private String city;
     @Column(nullable = false)
     private String zipCode;
+    @OneToMany(mappedBy = "client", cascade = CascadeType.REMOVE)
+    private List<ContractEntity> contracts;
 
     public long getClientId() {
         return clientId;
@@ -104,5 +107,13 @@ public class ClientEntity {
 
     public void setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
+    }
+
+    public List<ContractEntity> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<ContractEntity> contracts) {
+        this.contracts = contracts;
     }
 }
