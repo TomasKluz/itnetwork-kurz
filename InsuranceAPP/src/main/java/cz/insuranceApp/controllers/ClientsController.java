@@ -53,7 +53,7 @@ public class ClientsController {
         return "pages/clients/edit";
     }
     @PostMapping("/edit/{clientId}")
-    public String editeClient(@PathVariable long clientId,
+    public String editClient(@PathVariable long clientId,
                               @Valid ClientDTO client,
                               BindingResult result,
                               RedirectAttributes redirectAttributes){

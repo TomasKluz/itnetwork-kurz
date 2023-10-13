@@ -1,5 +1,6 @@
 package cz.insuranceApp.models.dto;
 
+import cz.insuranceApp.data.entities.ClientEntity;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.springframework.scheduling.support.SimpleTriggerContext;
@@ -8,6 +9,7 @@ import java.time.LocalDate;
 
 public class ContractDTO {
     private Long contractId;
+    private ClientEntity client;
 
     private String insuranceName;
     @NotNull(message = "vyplňte počíteční platnosti smlouvy.")
@@ -65,5 +67,13 @@ public class ContractDTO {
 
     public void setArticle(String article) {
         this.article = article;
+    }
+
+    public ClientEntity getClient() {
+        return client;
+    }
+
+    public void setClient(ClientEntity client) {
+        this.client = client;
     }
 }

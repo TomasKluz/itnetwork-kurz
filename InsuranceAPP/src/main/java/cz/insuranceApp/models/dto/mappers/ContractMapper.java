@@ -11,7 +11,7 @@ import org.mapstruct.MappingTarget;
 public interface ContractMapper {
 
     ContractEntity toEntity(ContractDTO source);
-    ContractDTO toDTO(ContractDTO source);
+    ContractDTO toDTO(ContractEntity source);
 
     void updateContractDTO(ContractDTO source, @MappingTarget ContractDTO target);
     void updateContractEntity(ContractDTO source, @MappingTarget ContractEntity target);

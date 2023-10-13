@@ -1,11 +1,13 @@
 package cz.insuranceApp.models.dto;
 
+import cz.insuranceApp.data.entities.ContractEntity;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.checkerframework.common.aliasing.qual.Unique;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class ClientDTO {
     private long clientId;
@@ -33,6 +35,8 @@ public class ClientDTO {
     @NotNull(message = "vplňte psč")
     @NotBlank(message = "vypňte psč")
     private String zipCode;
+
+    private List<ContractEntity> contracts;
 
 
     public long getClientId() {
@@ -105,5 +109,13 @@ public class ClientDTO {
 
     public void setZipCode(String zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public List<ContractEntity> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<ContractEntity> contracts) {
+        this.contracts = contracts;
     }
 }
